@@ -1,5 +1,13 @@
-﻿$string = "This script will install Skype Admin Tools"
-Write-Host $string 
+﻿$string3 = "This script will install Skype Admin Tools"
+Write-Host $string3
+Write-Host Installing VC redistribution Package 2013
+Start-Process C:\tools\vcredist_x64.exe /passive
+$string = "Installing VCredist_64"
+Write-Host $string
+for ($i = 1; $i -le 100; $i++ ) {
+    Write-Progress -Activity "Installing VC redistribution Package 2013" -Status "$i% Complete:" -PercentComplete $i
+    Start-Sleep -milliseconds 100
+}
 Write-Host Installing Core Components 
 Start-Process C:\tools\ocscore.msi /passive
 for ($i = 1; $i -le 100; $i++ ) {
